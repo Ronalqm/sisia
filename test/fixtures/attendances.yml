@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  subject: one
+  attendance_date: 2023-09-11
+
+two:
+  student: two
+  subject: two
+  attendance_date: 2023-09-11
