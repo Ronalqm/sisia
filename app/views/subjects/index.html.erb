@@ -1,0 +1,27 @@
+<h1>Materias</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Curso</th>
+      <th>Docente</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.name %></td>
+        <td><%= subject.course.name %></td>
+        <td><%= subject.teacher.full_name %></td>
+        <td>
+          <%= link_to 'Editar', edit_subject_path(subject) %>
+          <%= link_to 'Eliminar', subject, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nueva Materia', new_subject_path %>
+

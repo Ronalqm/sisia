@@ -1,0 +1,28 @@
+<!-- app/views/attendances/show.html.erb -->
+
+<h1>Asistencias para <%= @subject.name %> (Curso: <%= @course.name %>)</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Estudiante</th>
+      <th>Asistencia</th>
+      <th>Fecha</th>
+      <th>Acciones</th> <!-- Nueva columna para acciones -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.student.full_name %></td>
+        <td><%= attendance.descripcion %></td>
+        <td><%= attendance.attendance_date.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to 'Editar', edit_attendance_path(attendance), class: 'btn btn-primary' %>
+          <%= link_to 'Eliminar', attendance, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Volver a la selección de materia', select_subject_attendances_path(course_id: @course_id), class: 'btn btn-secondary' %>

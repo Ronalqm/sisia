@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  course: one
+  enrollment_date: 2023-09-25
+
+two:
+  student: two
+  course: two
+  enrollment_date: 2023-09-25

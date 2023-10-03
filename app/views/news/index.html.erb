@@ -1,0 +1,26 @@
+<h1>Noticias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @news.each do |news| %>
+      <tr>
+        <td><%= news.title %></td>
+        <td><%= news.date.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to 'Ver', news %>
+          <%= link_to 'Editar', edit_news_path(news) %>
+          <%= link_to 'Eliminar', news, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nueva Noticia', new_news_path %>

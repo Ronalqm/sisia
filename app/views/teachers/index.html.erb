@@ -1,0 +1,41 @@
+<h1>Listado de Profesores</h1>
+
+<%= link_to 'Crear Nuevo Profesor', new_teacher_path, class: 'btn btn-primary' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cédula de Identidad</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Género</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Dirección</th>
+      <th>Estado</th>
+      <th>Correo</th>
+      <th>Profesión</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.identification_number %></td>
+        <td><%= teacher.first_name %></td>
+        <td><%= teacher.last_name %></td>
+        <td><%= teacher.middle_name %></td>
+        <td><%= teacher.gender %></td>
+        <td><%= teacher.date_of_birth %></td>
+        <td><%= teacher.address %></td>
+        <td><%= teacher.status %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.profession %></td>
+        <td>
+          <%= link_to 'Editar', edit_teacher_path(teacher), class: 'btn btn-warning' %>
+          <%= link_to 'Cambiar Estado', update_status_teacher_path(teacher), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del profesor?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

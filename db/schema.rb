@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_11_235307) do
+ActiveRecord::Schema.define(version: 2023_10_03_015759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2023_09_11_235307) do
     t.date "attendance_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "descripcion"
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_attendances_on_course_id"
     t.index ["student_id"], name: "index_attendances_on_student_id"
     t.index ["subject_id"], name: "index_attendances_on_subject_id"
   end
@@ -32,6 +35,16 @@ ActiveRecord::Schema.define(version: 2023_09_11_235307) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "course_id"
+    t.date "enrollment_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_enrollments_on_course_id"
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
+  end
+
   create_table "grades", force: :cascade do |t|
     t.bigint "student_id"
     t.bigint "subject_id"
@@ -39,11 +52,20 @@ ActiveRecord::Schema.define(version: 2023_09_11_235307) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "value_max"
     t.index ["student_id"], name: "index_grades_on_student_id"
     t.index ["subject_id"], name: "index_grades_on_subject_id"
   end
 
   create_table "new_s", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "news", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.date "date"
@@ -63,6 +85,8 @@ ActiveRecord::Schema.define(version: 2023_09_11_235307) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_students_on_course_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -90,10 +114,14 @@ ActiveRecord::Schema.define(version: 2023_09_11_235307) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attendances", "courses"
   add_foreign_key "attendances", "students"
   add_foreign_key "attendances", "subjects"
+  add_foreign_key "enrollments", "courses"
+  add_foreign_key "enrollments", "students"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
+  add_foreign_key "students", "courses"
   add_foreign_key "subjects", "courses"
   add_foreign_key "subjects", "teachers"
 end

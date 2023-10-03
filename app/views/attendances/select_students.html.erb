@@ -1,0 +1,30 @@
+<!-- app/views/attendances/select_students.html.erb -->
+<h1>Registro de Asistencias</h1>
+<p>Curso: <%= @course.name %></p>
+<p>Materia: <%= @subject.name %></p>
+<p>Fecha: <%= Date.today %></p>
+
+<%= form_tag(create_attendances_attendances_path, method: :post) do %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Estudiante</th>
+        <th>Asistencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.full_name %></td>
+          <td>
+            <%= check_box_tag "attendance[#{student.id}][present]", true, false %>
+            <%= hidden_field_tag "attendance[#{student.id}][student_id]", student.id %>
+            <%= hidden_field_tag "attendance[#{student.id}][course_id]", @course.id %>
+            <%= hidden_field_tag "attendance[#{student.id}][subject_id]", @subject.id %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag 'Registrar Asistencias' %>
+<% end %>

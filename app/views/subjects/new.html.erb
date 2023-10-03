@@ -1,0 +1,24 @@
+<h1>Nueva Materia</h1>
+
+<%= form_for @subject do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :course_id, 'Curso' %>
+    <%= f.collection_select(:course_id, Course.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :teacher_id, 'Docente' %>
+    <%= f.collection_select(:teacher_id, Teacher.all, :id, :full_name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Guardar' %>
+  </div>
+<% end %>
+
+<%= link_to 'Volver a la lista de materias', subjects_path %>

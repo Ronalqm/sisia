@@ -4,12 +4,38 @@
     <title>Sisia</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_include_tag 'application' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <h1>Tu Sistema Académico</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><%= link_to 'Inicio', root_path %></li>
+            <li><%= link_to 'Estudiantes', students_path %></li>
+            <li><%= link_to 'Profesores', teachers_path %></li>
+            <li><%= link_to 'Cursos', courses_path %></li>
+            <li><%= link_to 'Materias', subjects_path %></li>
+            <li><%= link_to 'Noticias', news_index_path %></li> 
+            <li><%= link_to 'Calificaciones', select_in_course_grades_path %></li>
+            <li><%= link_to 'Nueva calificacion', select_course_grades_path %></li>
+            <li><%= link_to 'Asistencias', select_course_attendances_path %></li>
+            <li><%= link_to 'Nueva Asistencia', new_select_course_attendance_path %></li>
+            <!-- Otros elementos de menú... -->
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

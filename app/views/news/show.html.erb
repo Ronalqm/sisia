@@ -1,0 +1,9 @@
+<h1><%= @news.title %></h1>
+
+<p><strong>Fecha:</strong> <%= @news.date.strftime('%d/%m/%Y') %></p>
+<p><strong>Contenido:</strong></p>
+<p><%= @news.content %></p>
+
+<%= link_to 'Volver a la lista de noticias', news_index_path %>
+<%= link_to 'Editar', edit_news_path(@news) %>
+<%= link_to 'Eliminar', @news, method: :delete, data: { confirm: '¿Estás seguro?' } %>

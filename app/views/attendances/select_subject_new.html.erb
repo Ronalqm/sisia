@@ -1,0 +1,12 @@
+<!-- app/views/attendances/select_subject_new.html.erb -->
+<h1>Nuevo registro de asistencia</h1>
+<h2>Seleccione una materia </h2>
+
+<%= form_tag(select_students_attendances_path, method: :get) do %>
+  <div class="form-group">
+    <%= label_tag 'subject_id', 'Materia:' %>
+    <%= select_tag 'subject_id', options_for_select(@subjects.map { |subject| [subject.name, subject.id] }), include_blank: 'Seleccione una materia' %>
+  </div>
+  <%= hidden_field_tag 'course_id', params[:course_id] %>
+  <%= submit_tag 'Continuar' %>
+<% end %>

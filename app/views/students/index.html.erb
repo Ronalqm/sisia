@@ -1,0 +1,41 @@
+<h1>Listado de Estudiantes</h1>
+
+<%= link_to 'Crear Nuevo Estudiante', new_student_path, class: 'btn btn-primary' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cédula de Identidad</th>
+      <th>Nombre</th>
+      <th>Apellido Paterno</th>
+      <th>Apellido Materno</th>
+      <th>Género</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Dirección</th>
+      <th>Estado</th>
+      <th>Correo</th>
+      <th>Curso</th> <!-- Nueva columna para el Curso -->
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.identification_number %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.middle_name %></td>
+        <td><%= student.gender %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.address %></td>
+        <td><%= student.status %></td>
+        <td><%= student.email %></td>
+        <td><%= student.course.name if student.course %></td> <!-- Muestra el nombre del curso si existe -->
+        <td>
+          <%= link_to 'Editar', edit_student_path(student), class: 'btn btn-warning' %>
+          <%= link_to 'Cambiar Estado', update_status_student_path(student), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del estudiante?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

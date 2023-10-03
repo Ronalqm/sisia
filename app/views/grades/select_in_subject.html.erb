@@ -1,0 +1,11 @@
+<!-- app/views/grades/select_in_subject.html.erb -->
+<h1>Seleccione la Materia</h1>
+
+<%= form_tag(show_index_grades_path, method: :get) do %>
+  <div class="form-group">
+    <%= label_tag 'subject_id', 'Materia:' %>
+    <%= select_tag 'subject_id', options_from_collection_for_select(@subjects, 'id', 'name'), include_blank: 'Seleccione una materia' %>
+    <%= hidden_field_tag 'course_id', @course.id %>
+  </div>
+  <%= submit_tag 'Continuar', class: 'btn btn-primary' %>
+<% end %>

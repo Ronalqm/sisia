@@ -1,0 +1,26 @@
+<h1>Listado de Cursos</h1>
+
+<%= link_to 'Crear Nuevo Curso', new_course_path, class: 'btn btn-primary' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre del Curso</th>
+      <th>Número de Asignaturas</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= course.number_of_subjects %></td>
+        <td>
+          <%= link_to 'Ver Detalles', course, class: 'btn btn-info' %>
+          <%= link_to 'Editar', edit_course_path(course), class: 'btn btn-warning' %>
+          <%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

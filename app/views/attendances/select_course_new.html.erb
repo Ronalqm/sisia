@@ -1,0 +1,11 @@
+<!-- app/views/attendances/select_course_new.html.erb -->
+<h1>Nuevo registro de asistencia</h1>
+<h2>Seleccione el curso </h2>
+
+<%= form_tag(select_subject_new_attendances_path, method: :get) do %>
+  <div class="form-group">
+    <%= label_tag 'course_id', 'Curso:' %>
+    <%= select_tag 'course_id', options_for_select(@courses.map { |course| [course.name, course.id] }), include_blank: 'Seleccione un curso' %>
+  </div>
+  <%= submit_tag 'Continuar' %>
+<% end %>
