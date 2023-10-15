@@ -1,4 +1,8 @@
 <h1>Materias</h1>
+
+<%= link_to 'Nueva Materia', new_subject_path, class: 'btn btn-primary' %>
+
+<hr>
 <table>
   <thead>
     <tr>
@@ -15,13 +19,13 @@
         <td><%= subject.course.name %></td>
         <td><%= subject.teacher.full_name %></td>
         <td>
-          <%= link_to 'Editar', edit_subject_path(subject) %>
-          <%= link_to 'Eliminar', subject, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+          <%= link_to 'Editar', edit_subject_path(subject), class: 'btn btn-warning'%>
+          <%= link_to 'Eliminar', subject, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Nueva Materia', new_subject_path %>
+
 

@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     height: 100vh; /* Establece la altura completa del viewport */
   }
@@ -32,6 +32,10 @@ body {
     font-size: 24px;
     color: #fff;
   }
+
+  .dropdown {
+    margin-left: 0px;
+  }
   
   nav ul {
     list-style-type: none;
@@ -39,7 +43,8 @@ body {
   }
   
   nav ul li {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    margin-left: 16px;
   }
   
   nav ul li a {
@@ -54,5 +59,6 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
     overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+    width: 1360px;
   }
   

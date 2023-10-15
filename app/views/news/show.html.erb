@@ -4,6 +4,6 @@
 <p><strong>Contenido:</strong></p>
 <p><%= @news.content %></p>
 
-<%= link_to 'Volver a la lista de noticias', news_index_path %>
-<%= link_to 'Editar', edit_news_path(@news) %>
-<%= link_to 'Eliminar', @news, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+<%= link_to 'Volver a la lista de noticias', news_index_path, class: 'btn btn-secondary'%>
+<%= link_to 'Editar', edit_news_path(@news), class: 'btn btn-warning' %>
+<%= link_to 'Eliminar', @news, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'%>

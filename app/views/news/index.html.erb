@@ -14,13 +14,13 @@
         <td><%= news.title %></td>
         <td><%= news.date.strftime('%d/%m/%Y') %></td>
         <td>
-          <%= link_to 'Ver', news %>
-          <%= link_to 'Editar', edit_news_path(news) %>
-          <%= link_to 'Eliminar', news, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+          <%= link_to 'Ver detalles', news, class: 'btn btn-info' %>
+          <%= link_to 'Editar', edit_news_path(news), class: 'btn btn-warning' %>
+          <%= link_to 'Eliminar', news, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Nueva Noticia', new_news_path %>
+<%= link_to 'Nueva Noticia', new_news_path, class: 'btn btn-primary' %>
