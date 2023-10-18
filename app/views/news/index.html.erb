@@ -1,6 +1,9 @@
 <h1>Noticias</h1>
 
-<table>
+<%= link_to 'Nueva Noticia', new_news_path, class: 'btn btn-primary' %>
+<hr>
+
+<table class="table">
   <thead>
     <tr>
       <th>Título</th>
@@ -23,4 +26,4 @@
   </tbody>
 </table>
 
-<%= link_to 'Nueva Noticia', new_news_path, class: 'btn btn-primary' %>
+

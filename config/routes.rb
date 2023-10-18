@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'home/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # config/routes.rb
   # config/routes.rb
-  root 'students#index' 
+  # config/routes.rb
+  root 'home#index'#pagina de inicio
+ 
 
   #activacion de recursos para Estudiantes
   resources :students do
