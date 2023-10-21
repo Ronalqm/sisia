@@ -9,6 +9,10 @@ Things you may want to cover:
 
 * Rails version 5.2.8.1
 
+* PumaServer
+
+* PostgreSQL
+
 * System dependencies
 
 * Configuration
@@ -23,5 +27,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* install dependencies npm install
+
+* Run database migrate rails db:migrate
+
+* Run rails on sever rails s
 # sisia
