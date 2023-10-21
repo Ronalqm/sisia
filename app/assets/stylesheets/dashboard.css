@@ -51,8 +51,10 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
   }
+  
+  
   
   .content {
     flex-grow: 1; /* Hace que el contenido principal ocupe el espacio restante */
