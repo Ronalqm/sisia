@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  
+
   def index
     @news_count = News.count
     @student_count = Student.count

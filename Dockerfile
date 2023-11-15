@@ -1,26 +1,23 @@
-# Use an official Ruby runtime as a parent image
+# Usa la imagen oficial de Ruby con la versión 2.6.0
 FROM ruby:2.5.1
 
-# Install dependencies
-RUN apt-get update && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/* && apt-get clean
-
-# Selecciona un espejo de Debian diferente
-RUN sed -i 's/deb.debian.org/ftp.debian.org/' /etc/apt/sources.list
-
-# Set the working directory
+# Establece el directorio de trabajo en /app
 WORKDIR /app
 
-# Copy Gemfile and Gemfile.lock into the image
+# Copia el Gemfile y el Gemfile.lock al contenedor
 COPY Gemfile Gemfile.lock ./
 
-# Install bundle and dependencies
-RUN gem install bundler && bundle install
+# Instala una versión compatible de Bundler
+RUN gem install bundler -v '2.3.27'
 
-# Copy the main application
+# Instala las gemas
+RUN bundle install
+
+# Copia el resto de la aplicación al contenedor
 COPY . .
 
-# Expose port 3000 to the Docker host
+# Exponer el puerto 3000 para la aplicación Rails
 EXPOSE 3000
 
-# Start the application
+# Comando para iniciar la aplicación Rails
 CMD ["rails", "server", "-b", "0.0.0.0"]

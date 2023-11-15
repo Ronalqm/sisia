@@ -14,6 +14,17 @@
   </head>
 
   <body>
+
+      <% if user_signed_in? %>
+      <!-- Enlace para cerrar sesión -->
+      <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
+      <% else %>
+      <!-- Enlace para iniciar sesión -->
+      <%= link_to 'Iniciar sesión', new_user_session_path %>
+      <!-- Enlace para registrar nuevo usuario -->
+      <%= link_to 'Registrar', new_user_registration_path %>
+      <% end %>
+
     <div class="dashboard">
     <aside class="sidebar bg-dark text-light">
       <div class="logo">
@@ -81,6 +92,8 @@
         </nav>
       </aside>
 
+      
+      
       <main class="content">
         <%= yield %>
       </main>
