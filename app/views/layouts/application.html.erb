@@ -15,16 +15,6 @@
 
   <body>
 
-      <% if user_signed_in? %>
-      <!-- Enlace para cerrar sesión -->
-      <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
-      <% else %>
-      <!-- Enlace para iniciar sesión -->
-      <%= link_to 'Iniciar sesión', new_user_session_path %>
-      <!-- Enlace para registrar nuevo usuario -->
-      <%= link_to 'Registrar', new_user_registration_path %>
-      <% end %>
-
     <div class="dashboard">
     <aside class="sidebar bg-dark text-light">
       <div class="logo">
@@ -90,6 +80,19 @@
           </li>
           </ul>
         </nav>
+
+        <div>
+          <% if user_signed_in? %>
+            <!-- Enlace para cerrar sesión -->
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+          <% else %>
+            <!-- Enlace para iniciar sesión -->
+            <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-primary'%>
+            <br><br>
+            <!-- Enlace para registrar nuevo usuario -->
+            <%= link_to 'Registrar', new_user_registration_path, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
       </aside>
 
       
