@@ -1,0 +1,68 @@
+<aside class="sidebar bg-dark text-light">
+    <div class="logo">
+        <h1>Tu Sistema Académico</h1>
+    </div>
+    <nav>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+            <%= link_to root_path do %>
+                <span class="material-symbols-outlined">home</span> Inicio
+            <% end %>
+            </li>
+            <li class="nav-item">
+            <%= link_to students_path do %>
+                <span class="material-symbols-outlined">person</span> Estudiantes
+            <% end %>
+            </li>
+            <li class="nav-item">
+            <%= link_to teachers_path do %>
+                <span class="material-symbols-outlined">group</span> Profesores
+            <% end %>
+            </li>
+            <li class="nav-item">
+            <%= link_to courses_path do %>
+                <span class="material-symbols-outlined">school</span> Cursos
+            <% end %>
+            </li>
+            <li class="nav-item">
+            <%= link_to subjects_path do %>
+                <span class="material-symbols-outlined">list</span> Materias
+            <% end %>
+            </li>
+            <li class="nav-item text-light">
+            <%= link_to news_index_path do %>
+                <span class="material-symbols-outlined">news</span> Noticias
+            <% end %>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="material-symbols-outlined">task</span> Calificaciones
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="<%= select_in_course_grades_path %>">
+                <i class="bi bi-award"></i> Listado de calificaciones
+                </a>
+                <a class="dropdown-item" href="<%= select_course_grades_path %>">
+                <i class="bi bi-journal-plus"></i> Nueva calificación
+                </a>
+            </div>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="material-symbols-outlined">checklist</span></i> Asistencias
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="<%= select_course_attendances_path %>">
+                <i class="bi bi-calendar-check"></i> Listado de asistencias
+                </a>
+                <a class="dropdown-item" href="<%= new_select_course_attendance_path %>">
+                <i class="bi bi-calendar-plus"></i> Nueva Asistencia
+                </a>
+            </div>
+            </li>
+            </ul>
+        </nav>
+    <div>
+        <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+    </div>
+</aside>
