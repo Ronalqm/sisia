@@ -15,12 +15,13 @@ body {
   }
   
   .sidebar {
-    width: 250px;
-    background-color: #333;
+    /*width: 250px;
+    background-color: #333;*/
     color: #fff;
     padding: 20px;
     display: flex;
     flex-direction: column; /* Apila los elementos verticalmente */
+    height: 100%;
   }
   
   .logo {
@@ -37,29 +38,33 @@ body {
     margin-left: 0px;
   }
   
-  nav ul {
+  .sidebar ul {
     list-style-type: none;
     padding: 0;
   }
   
-  nav ul li {
+  .sidebar ul li {
     margin-bottom: 14px;
     margin-left: 16px;
   }
   
-  nav ul li a {
+  .sidebar ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
     font-size: 18px;
   }
   
-  nav-link {
-        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  .nav-link {
+        padding: 0;
         text-decoration: none;
         background: 0 0;
         border: 0;
         transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  }
+
+  .nav-item .dropdown-item{
+    color: black;
   }
   
   .content {
@@ -69,4 +74,51 @@ body {
     overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
     width: 1360px;
   }
+
+
+  .login{
+    width: 100%;
+    height: 100%;
+   
+    background: #aa4b6b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(59, 140, 153, 0.596), rgba(107, 107, 131, 0.568), rgba(170, 75, 107, 0.548)),url(https://www.xtrafondos.com/wallpapers/resized/hong-kong-ciudad-arte-digital-7494.jpg?s=large);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(59, 140, 153, 0.534), rgba(107, 107, 131, 0.562), rgba(170, 75, 107, 0.589)),url(https://www.xtrafondos.com/wallpapers/resized/hong-kong-ciudad-arte-digital-7494.jpg?s=large); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .modal-dialog{
+    max-width: var(--bs-modal-width);
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #f4f4f4;
+    width: 350px;
+    height: 550px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 18px;
+    padding: 5px;
+    top: 200px;
+  }
+
+  .modal-dialog img{
+      border-radius: 50%;
+  }
+
+  .col-form-label {
+    padding-top: calc(0.375rem + var(--bs-border-width));
+    padding-bottom: calc(0.375rem + var(--bs-border-width));
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+    width: auto;
+    border-radius: 10px;
+  }
+
+  
+
+
+
   
