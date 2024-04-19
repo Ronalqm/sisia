@@ -1,17 +1,18 @@
-<h1>Materias</h1>
+<div class="content-view">
+  <h1>Materias</h1>
 
-<%= link_to 'Nueva Materia', new_subject_path, class: 'btn btn-primary' %>
-<hr>
-<table class="table text-center">
-  <thead>
+  <%= link_to 'Nueva Materia', new_subject_path, class: 'btn btn-primary' %>
+  <hr>
+  <table class="table text-center">
+    <thead>
     <tr>
       <th>Nombre</th>
       <th>Curso</th>
       <th>Docente</th>
       <th>Acciones</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @subjects.each do |subject| %>
       <tr>
         <td><%= subject.name %></td>
@@ -23,8 +24,10 @@
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
 
 
+
+</div>

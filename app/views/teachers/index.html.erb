@@ -1,9 +1,12 @@
-<h1>Listado de Profesores</h1>
+<div class="content-view">
+  <h1>Listado de Profesores</h1>
+  <hr>
+  <div style="margin-bottom: 15px;">
+    <%= link_to 'Crear Nuevo Profesor', new_teacher_path, class: 'btn btn-primary' %>
+  </div>
 
-<%= link_to 'Crear Nuevo Profesor', new_teacher_path, class: 'btn btn-primary' %>
-<hr>
-<table class="table text-center">
-  <thead>
+  <table class="table text-center">
+    <thead>
     <tr>
       <th>Cédula de Identidad</th>
       <th>Nombre</th>
@@ -17,8 +20,8 @@
       <th>Profesión</th>
       <th>Acciones</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @teachers.each do |teacher| %>
       <tr>
         <td><%= teacher.identification_number %></td>
@@ -33,9 +36,11 @@
         <td><%= teacher.profession %></td>
         <td>
           <%= link_to 'Editar', edit_teacher_path(teacher), class: 'btn btn-warning' %>
-          <%= link_to 'Cambiar Estado', update_status_teacher_path(teacher), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del profesor?' } %>
+          <%= link_to 'Desactivar', update_status_teacher_path(teacher), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del profesor?' } %>
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+</div>

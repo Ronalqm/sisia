@@ -1,34 +1,38 @@
-<!-- app/views/grades/index.html.erb -->
-<h1>Calificaciones para <%= @subject.name %> (Curso: <%= @course.name %>)</h1>
+<div class="content-view">
+  <h1>Calificaciones para <%= @subject.name %> (Curso: <%= @course.name %>)</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Estudiante</th>
-      <th>Tipo de Calificación</th>
-      <th>Calificación</th>
-      <th>Valor Máximo</th>
-      <th>Fecha de Creación</th>
-      <th>Fecha de Actualización</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @grades.each do |grade| %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
       <tr>
-        <td><%= grade.student.full_name %></td>
-        <td><%= grade.grade_type %></td>
-        <td><%= grade.value %></td>
-        <td><%= grade.value_max %></td>
-        <td><%= grade.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
-        <td><%= grade.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
-        <td>
-          <%= link_to 'Editar', edit_grade_path(grade), class: 'btn btn-warning btn-sm' %>
-          <%= link_to 'Eliminar', grade, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %>
-        </td>
+        <th>Estudiante</th>
+        <th>Tipo de Calificación</th>
+        <th>Calificación</th>
+        <th>Valor Máximo</th>
+        <th>Fecha de Creación</th>
+        <th>Fecha de Actualización</th>
+        <th>Acciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @grades.each do |grade| %>
+        <tr>
+          <td><%= grade.student.full_name %></td>
+          <td><%= grade.grade_type %></td>
+          <td><%= grade.value %></td>
+          <td><%= grade.value_max %></td>
+          <td><%= grade.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+          <td><%= grade.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+          <td>
+            <%= link_to 'Editar', edit_grade_path(grade), class: 'btn btn-warning btn-sm' %>
+            <%= link_to 'Eliminar', grade, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'Volver a la selección de materia', select_in_subject_grades_path(course_id: @course.id), class: 'btn btn-secondary' %>
+  <%= link_to 'Volver a la selección de materia', select_in_subject_grades_path(course_id: @course.id), class: 'btn btn-secondary' %>
+
+</div>

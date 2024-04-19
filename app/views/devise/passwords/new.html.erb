@@ -1,0 +1,29 @@
+<div class="lpassword">
+  <div class="modal-body modal-dialog modal-password">
+    <div class="container col-lg-11">
+      <br><br>
+      <div class="modal-content col-lg-9">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form text-center"}) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= image_tag("icon-session.png", alt: "Ícono", width: "150", height: "150", style: "border-radius: 0;") %>
+          <h3 class="title-login">Olvidaste tu Contraseña?</h3>
+          <div class="form-group">
+            <%= f.label :Correo_Electronico, class: "col-sm-2 col-form-label text-sm-right" %><br />
+            <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email", class: "col-sm-2 col-form-label text-sm-right input-login" %>
+          </div>
+
+          <div class="form-actions password-login-button">
+            <%= f.submit "Enviar Instrucciones", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,26 +1,31 @@
-<h1>Listado de Cursos</h1>
+<div class="content-view">
+  <h1>Listado de Cursos</h1>
+  <hr>
+  <div style="margin-bottom: 15px;">
+    <%= link_to 'Crear Nuevo Curso', new_course_path, class: 'btn btn-primary' %>
+  </div>
 
-<%= link_to 'Crear Nuevo Curso', new_course_path, class: 'btn btn-primary' %>
-<hr>
-<table class="table text-center">
-  <thead>
+  <table class="table text-center table-hover">
+    <thead>
     <tr>
       <th>Nombre del Curso</th>
       <th>Número de Asignaturas</th>
       <th>Acciones</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.name %></td>
         <td><%= course.number_of_subjects %></td>
         <td>
-          <%= link_to 'Ver Detalles', course, class: 'btn btn-info' %>
-          <%= link_to 'Editar', edit_course_path(course), class: 'btn btn-warning' %>
-          <%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Ver Detalles', course, class: 'btn btn-info', style: 'width: 115px;' %>
+          <%= link_to 'Editar', edit_course_path(course), class: 'btn btn-warning' , style: 'width: 115px;'%>
+          <%= link_to 'Eliminar', course, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger', style: 'width: 115px;' %>
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+</div>

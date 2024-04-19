@@ -1,0 +1,8 @@
+<nav>
+  <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.email, "#", class: "user-email" %></li>
+      <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: 'btn btn-primary' %></li>
+    <% end %>
+  </ul>
+</nav>
