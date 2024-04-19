@@ -1,10 +1,13 @@
-<h1>Listado de Estudiantes</h1>
+<div class="content-view">
+  <h1>Listado de Estudiantes</h1>
+  <hr>
+  <div style="margin-bottom: 15px;">
+    <%= link_to 'Crear Nuevo Estudiante', new_student_path, class: 'btn btn-primary' %>
+  </div>
 
-<%= link_to 'Crear Nuevo Estudiante', new_student_path, class: 'btn btn-primary' %>
-<hr>
 
-<table class="table text-center">
-  <thead>
+  <table class="table text-center table-hover">
+    <thead>
     <tr>
       <th>Cédula de Identidad</th>
       <th>Nombre</th>
@@ -18,8 +21,8 @@
       <th>Curso</th> <!-- Nueva columna para el Curso -->
       <th>Acciones</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @students.each do |student| %>
       <tr>
         <td><%= student.identification_number %></td>
@@ -33,10 +36,12 @@
         <td><%= student.email %></td>
         <td><%= student.course.name if student.course %></td> <!-- Muestra el nombre del curso si existe -->
         <td>
-          <%= link_to 'Editar', edit_student_path(student), class: 'btn btn-warning' %>
-          <%= link_to 'Cambiar Estado', update_status_student_path(student), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del estudiante?' } %>
+          <%= link_to 'Editar', edit_student_path(student), class: 'btn btn-warning' , style: 'width: 115px; margin: 5px;'%>
+          <%= link_to 'Desactivar', update_status_student_path(student), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del estudiante?' } , style: 'width: 115px;'%>
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+</div>

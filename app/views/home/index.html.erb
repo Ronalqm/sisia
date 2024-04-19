@@ -1,41 +1,68 @@
-<h1>Bienvenido a tu dashboard</h1>
-
-<div class="card">
-    <span class="material-symbols-outlined " style="font-size: 90px;">
-        group
-    </span>
-    <h2><b>Estudiantes<b></h2>
-  <p>Cantidad: <%= @student_count %></p>
+<div class="two alt-two">
+  <h1>SIA
+    <span>Sistema de Gestion Academica</span>
+  </h1>
 </div>
 
-<div class="card">
-    <span class="material-symbols-outlined" style="font-size: 90px;">
-        groups
-    </span>
-  <h2><b>Docentes<b></h2>
-  <p>Cantidad: <%= @teacher_count %></p>
-</div>
+<hr>
 
-<div class="card">
-    <span class="material-symbols-outlined" style="font-size: 90px;">
-        school
-    </span>
-  <h2><b>Cursos<b></h2>
-  <p>Cantidad: <%= @course_count %></p>
-</div>
+<!-- nuevo card box -->
 
-<div class="card">
-    <span class="material-symbols-outlined" style="font-size: 90px;">
-        News
-    </span>
-  <h2><b>Noticias<b></h2>
-  <p>Cantidad: <%= @course_count %></p>
-</div>
+<div class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <div class="circle-tile-heading dark-blue"><i value="disabled" class="fa fa-user" style='font-size:36px'></i></div>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"><strong> Estudiantes</strong></div>
+            <p>Cantidad: <%= @student_count %></p>
+        </div>
+      </div>
+    </div>
 
-<div class="card">
-    <span class="material-symbols-outlined" style="font-size: 90px;">
-        description
-    </span>
-  <h2><b>Materias<b></h2>
-  <p>Cantidad: <%= @course_count %></p>
+
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <div class="circle-tile-heading red"><i value="disabled" class="fa fa-users" style='font-size:36px'></i></div>
+        <div class="circle-tile-content red">
+          <div class="circle-tile-description text-faded"> <strong>Docentes</strong> </div>
+          <p>Cantidad: <%= @teacher_count %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <div class="circle-tile-heading green"><i value="disabled" class="fa fa-clipboard" style='font-size:36px'></i></div>
+        <div class="circle-tile-content green">
+          <div class="circle-tile-description text-faded"> <strong>Cursos</strong> </div>
+          <p>Cantidad: <%= @course_count %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <div class="circle-tile-heading purple"><i value="disabled" class="fa fa-book fa-fw fa-3x"></i></div>
+        <div class="circle-tile-content purple">
+          <div class="circle-tile-description text-faded"><strong>Materias</strong></div>
+          <p>Cantidad: <%= @subject_count %></p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <div class="circle-tile-heading redblack"><i value="disabled" class="fa fa-desktop fa-fw fa-3x"></i></div>
+        <div class="circle-tile-content redblack">
+          <div class="circle-tile-description text-faded"><strong>Noticias</strong></div>
+          <p>Cantidad: <%= @news_count %></p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
 </div>

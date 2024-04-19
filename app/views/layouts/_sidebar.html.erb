@@ -1,9 +1,6 @@
-<aside class="sidebar bg-dark text-light">
-    <div>
-        <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
-    </div>
-    <div class="logo">
-        <h1>Tu Sistema Académico</h1>
+<aside class="sidebar text-light">
+    <div class="three text-light">
+        <h1 style="color: white;">Tu Sistema Académico</h1>
     </div>
     <nav class="sidebar">
         <ul class="nav flex-column">
@@ -38,7 +35,7 @@
                 <% end %>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="material-symbols-outlined">task</span> Calificaciones
                 </a>
                 <div class="dropdown-menu">
@@ -51,7 +48,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="material-symbols-outlined">checklist</span></i> Asistencias
                 </a>
                 <div class="dropdown-menu">
@@ -65,5 +62,13 @@
             </li>
             </ul>
         </nav>
-    
+        <hr>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+    </div>
 </aside>
+
+
+
+
+

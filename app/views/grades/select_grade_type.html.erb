@@ -1,37 +1,48 @@
-<!-- app/views/grades/select_grade_type.html.erb -->
+<div class="content-view">
+  <h1>Seleccione el Tipo de Calificación y Asigne las Notas</h1>
 
-<h1>Seleccione el Tipo de Calificación y Asigne las Notas</h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <%= form_tag(grades_path, method: :post) do %>
+              <div class="form-group">
+                <%= label_tag 'grade_type', 'Tipo de Calificación:', class: "form-label" %>
+                <%= select_tag 'grade_type', options_for_select(['Examen', 'Tarea', 'Proyecto']), include_blank: 'Seleccione un tipo de calificación', class: "form-control" %>
+              </div>
 
-<%= form_tag(grades_path, method: :post) do %>
-  <div class="form-group">
-    <%= label_tag 'grade_type', 'Tipo de Calificación:' %>
-    <%= select_tag 'grade_type', options_for_select(['Examen', 'Tarea', 'Proyecto']), include_blank: 'Seleccione un tipo de calificación' %>
+              <div class="form-group">
+                <%= label_tag 'value_max', 'Valor Máximo:', class: "form-label" %>
+                <%= number_field_tag 'value_max', nil, class: 'form-control' %>
+              </div>
+
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>Estudiante</th>
+                  <th>Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @students.each do |student| %>
+                  <tr>
+                    <td><%= student.full_name %></td>
+                    <td><%= number_field_tag "grades[#{student.id}]", nil, class: 'form-control' %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+
+              <%= hidden_field_tag 'course_id', @course.id %>
+              <%= hidden_field_tag 'subject_id', @subject.id %>
+
+              <%= submit_tag 'Registrar Calificaciones', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label_tag 'value_max', 'Valor Máximo:' %>
-    <%= number_field_tag 'value_max', nil, class: 'form-control' %>
-  </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Estudiante</th>
-        <th>Calificación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @students.each do |student| %>
-        <tr>
-          <td><%= student.full_name %></td>
-          <td><%= number_field_tag "grades[#{student.id}]", nil, class: 'form-control' %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <%= hidden_field_tag 'course_id', @course.id %>
-  <%= hidden_field_tag 'subject_id', @subject.id %>
-
-  <%= submit_tag 'Registrar Calificaciones', class: 'btn btn-primary' %>
-<% end %>
+</div>

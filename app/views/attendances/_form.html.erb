@@ -1,24 +1,32 @@
-<!-- app/views/attendances/_form.html.erb -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <%= form_for @attendance do |f| %>
+            <% if @attendance.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@attendance.errors.count, "error") %> prohibieron que esta asistencia sea guardada:</h2>
 
-<%= form_for @attendance do |f| %>
-  <% if @attendance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibieron que esta asistencia sea guardada:</h2>
+                <ul>
+                  <% @attendance.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-      <ul>
-        <% @attendance.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+            <div class="mb-3">
+              <%= f.label :descripcion, class: "form-label" %>
+              <%= f.select :descripcion, ['Presente', 'Ausente', 'Atraso'], {}, class: "form-select" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.select :descripcion, ['Presente', 'Ausente', 'Atraso'] %>
   </div>
-
-  <div class="actions">
-    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
-  </div>
-<% end %>
+</div>

@@ -1,24 +1,36 @@
-<h1>Editar Materia</h1>
+<div class="content-view">
+  <h1>Editar Materia</h1>
 
-<%= form_for @subject do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <%= form_for @subject do |f| %>
+              <div class="form-group">
+                <%= f.label :name, class: "form-label" %>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :course_id, 'Curso', class: "form-label" %>
+                <%= f.collection_select(:course_id, Course.all, :id, :name, class: "form-control") %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :teacher_id, 'Docente', class: "form-label" %>
+                <%= f.collection_select(:teacher_id, Teacher.all, :id, :full_name, class: "form-control") %>
+              </div>
+              <br>
+              <div class="actions">
+                <%= f.submit 'Actualizar', class: 'btn btn-primary' %>
+                <%= link_to 'Cancelar', subjects_path, class: 'btn btn-secondary' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :course_id, 'Curso' %>
-    <%= f.collection_select(:course_id, Course.all, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :teacher_id, 'Docente' %>
-    <%= f.collection_select(:teacher_id, Teacher.all, :id, :full_name) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'Actualizar', class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= link_to 'Cancelar', subjects_path, class: 'btn btn-secondary' %>
+</div>
