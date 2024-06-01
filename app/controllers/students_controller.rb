@@ -1,7 +1,8 @@
 class StudentsController < ApplicationController
     before_action :load_students, only: [:index]
-    before_action :set_student, only: [:show, :edit, :update, :update_status, :destroy]
-  
+    before_action :set_student, only: [:show, :edit, :update, :update_status, :destroy, :summary]
+
+
     def index
     end
 
@@ -19,6 +20,8 @@ class StudentsController < ApplicationController
        end
     end
 
+    def show
+    end
 
     def edit
     end
@@ -40,6 +43,18 @@ class StudentsController < ApplicationController
           flash[:error] = 'Hubo un problema al actualizar el estado del estudiante.'
         end
         redirect_to students_path
+    end
+
+
+    def summary
+      @grades = @student.grades
+      @attendances = @student.attendances
+    end
+
+    def generate_qr_code
+      qr_code = @student.generate_qr_code
+      png = qr_code.as_png(size: 200)
+      send_data png.to_s, type: 'image/png', disposition: 'inline'
     end
 
     private

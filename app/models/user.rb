@@ -3,4 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validate :validar_correo_docente
+
+  private
+
+  def validar_correo_docente
+    unless Teacher.exists?(email: email)
+      errors.add(:email, "no pertenece a un docente registrado")
+    end
+  end
 end

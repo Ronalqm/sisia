@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     
     resources :students do
       member do
+        get :summary
         patch :update_status
+        get :generate_qr_code
       end
     end
 

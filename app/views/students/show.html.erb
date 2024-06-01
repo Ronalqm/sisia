@@ -1,0 +1,27 @@
+<div class="content-view">
+  <h1 class="mb-4"><%= @student.first_name %> <%= @student.last_name %></h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Información del Estudiante</h3>
+      <p><strong>Nombre:</strong> <%= @student.first_name %> <%= @student.last_name %></p>
+      <p><strong>Correo Electrónico:</strong> <%= @student.email %></p>
+      <p><strong>Número de Identificación:</strong> <%= @student.identification_number %></p>
+      <p><strong>Género:</strong> <%= @student.gender %></p>
+      <p><strong>Fecha de Nacimiento:</strong> <%= @student.date_of_birth %></p>
+      <p><strong>Dirección:</strong> <%= @student.address %></p>
+      <p><strong>Estado:</strong> <%= @student.status %></p>
+    </div>
+    <div class="col-md-6">
+      <h3>Código QR</h3>
+      <%= image_tag(url_for(controller: 'students', action: 'generate_qr_code', id: @student.id, only_path: true)) %>
+      <%= link_to 'Resumen del Estudiante', summary_student_path(@student), class: 'btn btn-primary mt-3' %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to 'Editar', edit_student_path(@student), class: 'btn btn-warning' %>
+    <%= link_to 'Volver', students_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
+

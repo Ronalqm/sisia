@@ -1,17 +1,18 @@
-<!-- app/views/attendances/show.html.erb -->
+<div class="content-view">
+  <!-- app/views/attendances/show.html.erb -->
 
-<h1>Asistencias para <%= @subject.name %> (Curso: <%= @course.name %>)</h1>
+  <h1>Asistencias para <%= @subject.name %> (Curso: <%= @course.name %>)</h1>
 
-<table class="table">
-  <thead>
+  <table class="table">
+    <thead>
     <tr>
       <th>Estudiante</th>
       <th>Asistencia</th>
       <th>Fecha</th>
       <th>Acciones</th> <!-- Nueva columna para acciones -->
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @attendances.each do |attendance| %>
       <tr>
         <td><%= attendance.student.full_name %></td>
@@ -23,6 +24,7 @@
         </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<%= link_to 'Volver a la selección de materia', select_subject_attendances_path(course_id: @course_id), class: 'btn btn-secondary' %>
+    </tbody>
+  </table>
+  <%= link_to 'Volver a la selección de materia', select_subject_attendances_path(course_id: @course_id), class: 'btn btn-secondary' %>
+</div>

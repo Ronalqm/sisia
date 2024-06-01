@@ -36,6 +36,7 @@
         <td><%= student.email %></td>
         <td><%= student.course.name if student.course %></td> <!-- Muestra el nombre del curso si existe -->
         <td>
+          <%= link_to 'Mostrar', student_path(student), class: 'btn btn-info ' , style: 'width: 115px; margin: 5px;'%>
           <%= link_to 'Editar', edit_student_path(student), class: 'btn btn-warning' , style: 'width: 115px; margin: 5px;'%>
           <%= link_to 'Desactivar', update_status_student_path(student), method: :patch, class: 'btn btn-danger', data: { confirm: '¿Cambiar estado del estudiante?' } , style: 'width: 115px;'%>
         </td>

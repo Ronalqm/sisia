@@ -65,3 +65,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancancan'
 
+gem 'rqrcode'
+gem 'chunky_png'
+
+
