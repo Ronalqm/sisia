@@ -1,9 +1,11 @@
 <div class="content-view">
   <h1>Materias</h1>
-
-  <%= link_to 'Nueva Materia', new_subject_path, class: 'btn btn-primary' %>
   <hr>
-  <table class="table text-center">
+  <div style="margin-bottom: 15px;">
+    <%= link_to 'Nueva Materia', new_subject_path, class: 'btn btn-primary' %>
+  </div>
+
+  <table class="table text-center table-hover">
     <thead>
     <tr>
       <th>Nombre</th>

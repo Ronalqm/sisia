@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    var errorMessages = document.getElementById("error-messages");
+    if (errorMessages && errorMessages.innerText.trim() !== "") {
+        var errorMessage = errorMessages.innerText.trim();
+        alert(errorMessage);
+    }
+});
+

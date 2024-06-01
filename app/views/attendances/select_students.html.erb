@@ -1,23 +1,24 @@
-<!-- app/views/attendances/select_students.html.erb -->
-<h1>Registro de Asistencias</h1>
-<p style="color: black;"><strong>Curso: </strong><%= @course.name %></p>
-<p style="color: black;"><strong>Materia: </strong><%= @subject.name %></p>
-<p style="color: black;"><strong>Fecha: </strong><%= Date.today %></p>
+<div class="content-view">
+  <!-- app/views/attendances/select_students.html.erb -->
+  <h1>Registro de Asistencias</h1>
+  <p style="color: black;"><strong>Curso: </strong><%= @course.name %></p>
+  <p style="color: black;"><strong>Materia: </strong><%= @subject.name %></p>
+  <p style="color: black;"><strong>Fecha: </strong><%= Date.today %></p>
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-body">
-          <%= form_tag(create_attendances_attendances_path, method: :post) do %>
-            <table class="table">
-              <thead>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <%= form_tag(create_attendances_attendances_path, method: :post) do %>
+              <table class="table">
+                <thead>
                 <tr>
                   <th>Estudiante</th>
                   <th>Asistencia</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <% @students.each do |student| %>
                   <tr>
                     <td><%= student.full_name %></td>
@@ -29,12 +30,14 @@
                     </td>
                   </tr>
                 <% end %>
-              </tbody>
-            </table>
-            <%= submit_tag 'Registrar Asistencias', class: 'btn btn-success' %>
-          <% end %>
+                </tbody>
+              </table>
+              <%= submit_tag 'Registrar Asistencias', class: 'btn btn-success' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>

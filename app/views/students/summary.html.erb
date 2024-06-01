@@ -1,0 +1,54 @@
+<div class="content-view">
+  <h1>Resumen del Estudiante</h1>
+
+  <h2>Información del Estudiante</h2>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @student.first_name %> <%= @student.last_name %><br>
+    <strong>Correo Electrónico:</strong>
+    <%= @student.email %><br>
+  </p>
+
+  <h2>Notas</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Materia</th>
+      <th>Tipo de Nota</th>
+      <th>Valor</th>
+      <th>Valor Máximo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @grades.each do |grade| %>
+      <tr>
+        <td><%= grade.subject.name %></td>
+        <td><%= grade.grade_type %></td>
+        <td><%= grade.value %></td>
+        <td><%= grade.value_max %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h2>Asistencias</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Materia</th>
+      <th>Fecha</th>
+      <th>Descripción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.subject.name %></td>
+        <td><%= attendance.attendance_date %></td>
+        <td><%= attendance.descripcion %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>

@@ -1,9 +1,12 @@
-<!-- app/views/attendances/edit.html.erb -->
+<div class="content-view">
+  <!-- app/views/attendances/edit.html.erb -->
 
-<h1>Editar Asistencia</h1>
+  <h1>Editar Asistencia</h1>
 
-<%= render 'form', attendance: @attendance %>
+  <%= render 'form', attendance: @attendance %>
 
-<div class="actions">
-  <%= link_to 'Volver', select_course_attendances_path(course_id: @course.id, subject_id: @subject.id), class: 'btn btn-secondary' %>
+  <div class="actions">
+    <%= link_to 'Volver', select_course_attendances_path(course_id: @course.id, subject_id: @subject.id), class: 'btn btn-secondary' %>
+  </div>
+
 </div>
