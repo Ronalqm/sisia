@@ -1,4 +1,4 @@
-# Usa la imagen oficial de Ruby con la versión 2.6.0
+# Usa la imagen oficial de Ruby con la versión 2.5.1
 FROM ruby:2.5.1
 
 # Establece el directorio de trabajo en /app
@@ -9,6 +9,9 @@ COPY Gemfile Gemfile.lock ./
 
 # Instala una versión compatible de Bundler
 RUN gem install bundler -v '2.3.27'
+
+# Verifica la versión de Bundler
+RUN bundler -v
 
 # Instala las gemas
 RUN bundle install
