@@ -96,6 +96,9 @@ h1 em {
   text-transform: uppercase;
   font-size: 24px;
 }
+.letter-black{
+  color: black;
+}
 p{
   color: #FFFFFF;
   margin: 10px;

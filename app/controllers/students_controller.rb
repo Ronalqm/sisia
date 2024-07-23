@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :load_students, only: [:index]
-    before_action :set_student, only: [:show, :edit, :update, :update_status, :destroy, :summary]
+    before_action :set_student, only: [:show, :edit, :update, :update_status, :destroy, :summary, :generate_qr_code]
 
 
     def index
