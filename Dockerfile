@@ -1,5 +1,10 @@
-# Usa la imagen oficial de Ruby con la versión 2.5.1
-FROM ruby:2.5.1
+# Usa la imagen oficial de Ruby con la versión 2.5 en Debian Buster
+FROM ruby:2.5-buster
+
+# Instala Node.js y npm
+RUN apt-get update -qq && apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
@@ -24,6 +29,10 @@ RUN bundle _2.2.3_ install
 
 # Copia el resto de la aplicación al contenedor
 COPY . .
+
+# Instala dependencias JavaScript si tienes un package.json
+COPY package.json ./
+RUN npm install
 
 # Exponer el puerto 3000 para la aplicación Rails
 EXPOSE 3000
