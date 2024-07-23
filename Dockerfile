@@ -7,14 +7,20 @@ WORKDIR /app
 # Copia el Gemfile y el Gemfile.lock al contenedor
 COPY Gemfile Gemfile.lock ./
 
-# Instala una versión compatible de Bundler
-RUN gem install bundler -v '2.3.27'
+# Elimina todas las versiones de Bundler para evitar conflictos
+RUN gem uninstall bundler --all --executables || true
+
+# Instala una versión específica de Bundler
+RUN gem install bundler:2.2.3
+
+# Establece la versión de Bundler explícitamente
+ENV BUNDLER_VERSION=2.2.3
 
 # Verifica la versión de Bundler
-RUN bundler -v
+RUN bundle _2.2.3_ --version
 
-# Instala las gemas
-RUN bundle install
+# Instala las gemas usando la versión correcta de Bundler
+RUN bundle _2.2.3_ install
 
 # Copia el resto de la aplicación al contenedor
 COPY . .
