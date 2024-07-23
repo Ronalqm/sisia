@@ -1,8 +1,30 @@
-# Usa la imagen oficial de Ruby con la versión 2.5 en Debian Buster
-FROM ruby:2.5-buster
+# Usa una imagen base de Debian Buster
+FROM debian:buster
+
+# Instala dependencias y Ruby 2.5.1 manualmente
+RUN apt-get update -qq && apt-get install -y \
+  build-essential \
+  curl \
+  git \
+  libssl-dev \
+  libreadline-dev \
+  zlib1g-dev \
+  libpq-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+# Instala rbenv y ruby-build
+RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+RUN ~/.rbenv/bin/rbenv install 2.5.1
+RUN ~/.rbenv/bin/rbenv global 2.5.1
+
+# Agrega rbenv al PATH
+ENV PATH="/root/.rbenv/bin:/root/.rbenv/shims:${PATH}"
+
+# Verifica la versión de Ruby
+RUN ruby -v
 
 # Instala Node.js y npm
-RUN apt-get update -qq && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
